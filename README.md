@@ -24,27 +24,27 @@ custom backup script.
   directory (`/srv/shared-team`), rather than relying on loosened home 
   directory permissions
 ![User creation and permission setup](Screenshot-2026-09-08-032146.png)
-![Group permission fix with chmod 660](Screenshot-2026-09-16-031943.png)
-![Permission denied resolved via shared location](Screenshot-2026-09-16-014952.png)
+![Group permission fix with chmod 660](Screenshot-2026-09-08-033224.png)
+![Permission denied resolved via shared location](Screenshot-2026-09-08-034521.png)
 
 ### SSH
 - Installed and configured OpenSSH server
 - Hardened configuration by disabling root login (`PermitRootLogin no`)
 - Verified remote access from host machine via VirtualBox NAT port 
   forwarding
-  ![SSH root login denied, standard user succeeds](Screenshot-2026-09-16-022200.png)
+![SSH root login denied, standard user succeeds](Screenshot-2026-09-16-014952.png)
 
 ### Firewall (UFW)
 - Enabled UFW with default deny-incoming policy
 - Explicitly allowed SSH before enabling the firewall (avoiding a 
   lockout), then allowed Nginx/HTTP
-  ![UFW active with SSH and HTTP allowed](Screenshot-2026-09-16-014443.png)
+![UFW active with SSH and HTTP allowed](Screenshot-2026-09-16-014443.png)
 
 ### Nginx
 - Installed and verified a running web service
 - Exposed it through UFW and VirtualBox port forwarding, confirmed 
   access from the host browser
-  ![Nginx welcome page accessed from host browser](Screenshot-2026-09-16-011748.png)
+![Nginx welcome page accessed from host browser](Screenshot-2026-09-16-014122.png)
 
 ### Logs
 - Reviewed Nginx access/error logs and systemd journal entries
@@ -56,7 +56,7 @@ custom backup script.
 - Wrote `backup.sh`: creates a timestamped, compressed backup of a 
   target directory, with error handling and logging
 - Scheduled it via cron to run daily
-![Backup script log showing failure-to-success debugging](Screenshot-2026-09-16-010316.png)
+![Backup script log showing failure-to-success debugging](Screenshot-2026-09-16-031943.png)
 
 ## Problems encountered
 - Package installation initially failed with 404 errors from Ubuntu 

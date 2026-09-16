@@ -23,22 +23,28 @@ custom backup script.
   (`shared-team`) and a shared location outside any single user's home 
   directory (`/srv/shared-team`), rather than relying on loosened home 
   directory permissions
+![User creation and permission setup](Screenshot_2026-09-16_014122.png)
+![Group permission fix with chmod 660](Screenshot_2026-09-16_031943.png)
+![Permission denied resolved via shared location](Screenshot_2026-09-16_014952.png)
 
 ### SSH
 - Installed and configured OpenSSH server
 - Hardened configuration by disabling root login (`PermitRootLogin no`)
 - Verified remote access from host machine via VirtualBox NAT port 
   forwarding
+  ![SSH root login denied, standard user succeeds](Screenshot_2026-09-16_022200.png)
 
 ### Firewall (UFW)
 - Enabled UFW with default deny-incoming policy
 - Explicitly allowed SSH before enabling the firewall (avoiding a 
   lockout), then allowed Nginx/HTTP
+  ![UFW active with SSH and HTTP allowed](Screenshot_2026-09-16_014443.png)
 
 ### Nginx
 - Installed and verified a running web service
 - Exposed it through UFW and VirtualBox port forwarding, confirmed 
   access from the host browser
+  ![Nginx welcome page accessed from host browser](Screenshot_2026-09-16_011748.png)
 
 ### Logs
 - Reviewed Nginx access/error logs and systemd journal entries
@@ -50,6 +56,7 @@ custom backup script.
 - Wrote `backup.sh`: creates a timestamped, compressed backup of a 
   target directory, with error handling and logging
 - Scheduled it via cron to run daily
+![Backup script log showing failure-to-success debugging](Screenshot_2026-09-16_010316.png)
 
 ## Problems encountered
 - Package installation initially failed with 404 errors from Ubuntu 

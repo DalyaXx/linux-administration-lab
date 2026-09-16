@@ -23,7 +23,7 @@ custom backup script.
   (`shared-team`) and a shared location outside any single user's home 
   directory (`/srv/shared-team`), rather than relying on loosened home 
   directory permissions
-![User creation and permission setup]("Screenshot 2026-09-08 032146.png")
+![User creation and permission setup](/Screenshot 2026-09-08 032146.png)
 ![Group permission fix with chmod 660](Screenshot_2026-09-16_031943.png)
 ![Permission denied resolved via shared location](Screenshot_2026-09-16_014952.png)
 
